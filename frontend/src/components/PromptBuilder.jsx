@@ -89,4 +89,75 @@ export default function PromptBuilder({ userId, onPromptSaved }) {
         <label style={{ color: '#a0a0a0', fontSize: '0.85rem' }}>Tone</label>
         <select
           value={agentTone}
-          onChange={e => setAgentTone(e.tar
+          onChange={e => setAgentTone(e.target.value)}
+          style={{ ...inputStyle, marginTop: '0.4rem' }}
+        >
+          <option value="professional">Professional</option>
+          <option value="friendly">Friendly</option>
+          <option value="casual">Casual</option>
+          <option value="formal">Formal</option>
+          <option value="creative">Creative</option>
+        </select>
+
+        <label style={{ color: '#a0a0a0', fontSize: '0.85rem' }}>Platform</label>
+        <select
+          value={agentPlatform}
+          onChange={e => setAgentPlatform(e.target.value)}
+          style={{ ...inputStyle, marginTop: '0.4rem' }}
+        >
+          <option value="general">General</option>
+          <option value="chatgpt">ChatGPT</option>
+          <option value="claude">Claude</option>
+          <option value="gemini">Gemini</option>
+          <option value="custom">Custom AI</option>
+        </select>
+
+        <button
+          onClick={handleGenerate}
+          disabled={loading}
+          style={{
+            width: '100%', padding: '0.9rem',
+            background: loading ? '#3d3d3d' : '#6c63ff',
+            color: '#fff', borderRadius: '8px',
+            fontSize: '1rem', fontWeight: '600',
+            transition: 'background 0.2s'
+          }}
+        >
+          {loading ? 'Generating...' : '✨ Generate Prompt'}
+        </button>
+      </div>
+
+      {generatedPrompt && (
+        <div style={{
+          background: '#1a1a1a', border: '1px solid #6c63ff',
+          borderRadius: '16px', padding: '2rem'
+        }}>
+          <div style={{
+            display: 'flex', justifyContent: 'space-between',
+            alignItems: 'center', marginBottom: '1rem'
+          }}>
+            <h3 style={{ color: '#f0f0f0' }}>Your Generated Prompt</h3>
+            <button
+              onClick={handleCopy}
+              style={{
+                padding: '0.5rem 1.2rem',
+                background: copied ? '#22c55e' : '#252525',
+                color: '#f0f0f0', borderRadius: '8px',
+                border: '1px solid #2e2e2e', fontSize: '0.9rem',
+                transition: 'background 0.2s'
+              }}
+            >
+              {copied ? '✓ Copied!' : 'Copy'}
+            </button>
+          </div>
+          <p style={{
+            color: '#f0f0f0', lineHeight: '1.7',
+            whiteSpace: 'pre-wrap', fontSize: '0.95rem'
+          }}>
+            {generatedPrompt}
+          </p>
+        </div>
+      )}
+    </div>
+  )
+}
