@@ -26,3 +26,24 @@ export default function Dashboard({ session }) {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '2rem 1rem
+          gap: '2rem'
+      }}>
+        <div style={{ flex: 1 }}>
+          <PromptBuilder
+            session={session}
+            onSave={() => setRefreshHistory(r => r + 1)}
+          />
+        </div>
+
+        {showHistory && (
+          <div style={{ width: '320px' }}>
+            <HistoryPanel
+              onSelect={(prompt) => navigator.clipboard.writeText(prompt)}
+              refresh={refreshHistory}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
