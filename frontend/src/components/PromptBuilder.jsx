@@ -161,3 +161,4 @@ export default function PromptBuilder({ userId, onPromptSaved }) {
     </div>
   )
 }
+export default PromptBuilder
