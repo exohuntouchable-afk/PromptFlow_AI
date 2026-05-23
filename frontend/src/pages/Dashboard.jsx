@@ -25,8 +25,8 @@ export default function Dashboard({ session }) {
         display: 'flex',
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '2rem 1rem
-          gap: '2rem'
+        padding: '2rem 1rem'
+        gap: '2rem'
       }}>
         <div style={{ flex: 1 }}>
           <PromptBuilder
