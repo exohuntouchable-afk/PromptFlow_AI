@@ -60,3 +60,4 @@ export default function Navbar({ email, onSignOut, onToggleHistory, showHistory 
     </nav>
   )
 }
+export default Navbar
