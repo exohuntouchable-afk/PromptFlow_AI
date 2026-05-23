@@ -61,4 +61,44 @@ export default function Login() {
           value={password}
           onChange={e => setPassword(e.target.value)}
           style={{
-            width: '100%', padding: '0.8rem 1rem', mar
+            width: '100%', padding: '0.8rem 1rem', marginBottom: '1rem',
+            background: '#252525',
+            border: '1px solid #2e2e2e',
+            borderRadius: '8px',
+            color: '#f0f0f0', fontSize: '1rem'
+          }}
+        />
+        {error && (
+          <p style={{ color: '#ff4444', marginBottom: '1rem' }}>{error}</p>
+        )}
+        <button
+          onClick={handleAuth}
+          style={{
+            width: '100%',
+            padding: '0.8rem',
+            background: '#6c63ff',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            marginBottom: '1rem'
+          }}
+        >
+          {isLogin ? 'Sign In' : 'Sign Up'}
+        </button>
+        <p style={{ color: '#888', textAlign: 'center' }}>
+          {isLogin ? "Don't have an account? " : "Already have an account? "}
+          <span
+            onClick={() => setIsLogin(!isLogin)}
+            style={{ color: '#6c63ff', cursor: 'pointer' }}
+          >
+            {isLogin ? 'Sign Up' : 'Sign In'}
+          </span>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+export default Login
