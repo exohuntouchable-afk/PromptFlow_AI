@@ -46,4 +46,12 @@ function App() {
         <Route path="/dashboard" element={
           session ? <Dashboard session={session} /> : <Navigate to="/login" />
         } />
-        <Route
+        <Routepath="*"
+          element={<Navigate to="/login" />}
+        />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App
